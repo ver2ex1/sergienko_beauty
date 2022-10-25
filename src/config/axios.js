@@ -38,7 +38,7 @@ instance.interceptors.response.use(
 
 const publicAxios = axios.create({
   baseURL: `${BASE_URL}`,
-  headers: { "Content-Type": "multipart/form-data" },
+  headers: { "Content-Type": "application/json" },
 });
 
 export { publicAxios, BASE_URL };

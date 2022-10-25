@@ -1,6 +1,7 @@
 import { makeObservable, observable, action, runInAction } from "mobx";
 import { publicAxios } from "config/axios";
 import { privatePaths, publicPaths } from "routes";
+import { toast } from "react-toastify";
 
 class AdminStore {
   isLoadingLogin = false;
@@ -19,7 +20,7 @@ class AdminStore {
     });
 
     publicAxios
-      .post("/auth/access-token", payload)
+      .post("/auth/login", payload)
       .then(({ data }) => {
         localStorage.setItem("access_token", data.token);
 
