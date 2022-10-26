@@ -1,7 +1,7 @@
 export const defaultPath = "/";
 
 export const privatePaths = {
-  adminPanel: "admin/panel",
+  adminPanel: "/admin/panel",
 };
 
 export const publicPaths = {
@@ -9,4 +9,5 @@ export const publicPaths = {
   about: "/about",
   portfolio: "/portfolio",
   form: "/form",
+  startPage: "",
 };

@@ -6,16 +6,19 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { publicPaths, privatePaths } from "routes";
 
 const AdminLoginPage = lazy(() => import("Pages/AdminLogin"));
+const AdminPanelPage = lazy(() => import("Pages/AdminPanel"));
+const EntryPage = lazy(() => import("Pages/Start"));
 
 const publicRoutes = [
   { path: publicPaths.admin, Component: <AdminLoginPage /> },
   { path: publicPaths.about, Component: <h1>1123</h1> },
   { path: publicPaths.form, Component: <h1>1123</h1> },
   { path: publicPaths.portfolio, Component: <h1>1123</h1> },
+  { path: publicPaths.startPage, Component: <EntryPage /> },
 ];
 
 const privateRoutes = [
-  { path: privatePaths.adminPanel, Component: <h1>Admin panel</h1> },
+  { path: privatePaths.adminPanel, Component: <AdminPanelPage /> },
 ];
 
 function App() {
@@ -36,12 +39,6 @@ function App() {
             element={<PublicRoute>{route.Component}</PublicRoute>}
           />
         ))}
-        <Route path="*" element={<Navigate to={publicPaths.about} replace />} />
-        <Route
-          exact
-          path="/"
-          element={<Navigate to={publicPaths.about} replace />}
-        />
       </Routes>
     </Suspense>
   );
