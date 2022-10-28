@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import useWindowSize from "hooks/useWindowSize";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
+import Instagram from "images/Intsagram";
 import getStyles from "./styles";
 
 const navLinks = [
@@ -27,6 +28,10 @@ const Layout = ({ children }) => {
   };
 
   const navigate = useNavigate();
+
+  const handleClickInstagram = () => {
+    window.open("https://instagram.com/sergiienko.beauty?igshid=YmMyMTA2M2Y=");
+  };
 
   return (
     <Box>
@@ -54,6 +59,11 @@ const Layout = ({ children }) => {
                 </Link>
               );
             })}
+            <Instagram
+              stroke="rgb(89, 82, 68)"
+              sx={{ cursor: "pointer" }}
+              onClick={handleClickInstagram}
+            />
           </Box>
         ) : (
           <Menu
@@ -136,6 +146,11 @@ const Layout = ({ children }) => {
                   </Link>
                 );
               })}
+              <Instagram
+                stroke="rgb(89, 82, 68)"
+                sx={{ marginTop: "10px", cursor: "pointer" }}
+                onClick={handleClickInstagram}
+              />
             </main>
           </Menu>
         )}
