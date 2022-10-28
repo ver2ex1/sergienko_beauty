@@ -24,12 +24,7 @@ class ImageStore {
     axios
       .get("/images")
       .then(({ data }) => {
-        this.images = data.map((item) => {
-          return {
-            ...item,
-            image: `https://sergiienko.herokuapp.com/${item.image}`,
-          };
-        });
+        this.images = data;
 
         runInAction(() => {
           this.isLoadingImages = false;
@@ -47,7 +42,7 @@ class ImageStore {
     const formdata = new FormData();
     formdata.append("image", payload.image);
     formdata.append("description", payload.description);
-
+    formdata.append("folder", payload.folder);
     axios
       .post("/images", formdata, {
         Headers: {

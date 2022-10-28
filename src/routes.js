@@ -10,4 +10,6 @@ export const publicPaths = {
   portfolio: "/portfolio",
   form: "/form",
   startPage: "",
+  runway: "/runway",
+  beauty: "/beauty",
 };

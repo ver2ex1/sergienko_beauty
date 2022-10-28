@@ -7,12 +7,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import theme from "config/theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <ToastContainer />
       <App />
     </ThemeProvider>

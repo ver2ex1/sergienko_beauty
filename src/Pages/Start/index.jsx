@@ -12,7 +12,7 @@ const Start = () => {
   return (
     <Box sx={classes.wrapper}>
       <Typography variant="h3">Alexandra Sergiienko</Typography>
-      <Typography variant="h6">Artist</Typography>
+      <Typography variant="h6">Worldwide Makeup Artist</Typography>
       <Button variant="outlined" sx={classes.button} onClick={handleClick}>
         Enter
       </Button>

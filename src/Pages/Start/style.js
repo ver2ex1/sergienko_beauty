@@ -20,6 +20,7 @@ const getStyles = () => {
     },
     button: {
       fontWeight: 600,
+      fontSize: "18px",
       color: "#fff",
       textTransform: "none",
       border: "2px solid #fff",

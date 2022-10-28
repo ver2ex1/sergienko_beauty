@@ -5,23 +5,29 @@ import {
   TextField,
   Typography,
   Button,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import imageStore from "stores/imageStore";
+import adminStore from "stores/adminStore";
 import { observer } from "mobx-react-lite";
 import { useForm } from "react-hook-form";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
 
 import getStyles from "./style";
 
 const AdminPanel = () => {
   const { images, getImages, deleteImage, createImage, isLoadingImages } =
     imageStore;
+  const { logout } = adminStore;
   const classes = getStyles();
+  const navigate = useNavigate();
   useEffect(() => {
     getImages();
   }, []);
   const { register, handleSubmit, setValue } = useForm({
-    defaultValues: { iamge: "", description: "" },
+    defaultValues: { image: "", description: "" },
   });
   const onUpdatePhoto = (event) => {
     if (!event.target.files || !event.target.files[0]) {
@@ -33,30 +39,49 @@ const AdminPanel = () => {
     createImage({ payload, callback: () => getImages() });
   });
   const handleDelete = (id) => {
-    console.log(id);
     deleteImage({ id, callback: () => getImages() });
   };
+
+  const handleLogout = () => {
+    logout({ navigate });
+  };
+
+  const options = [
+    { label: "Portfolio", value: "portfolio" },
+    { label: "Runway", value: "runway" },
+    { label: "Beauty", value: "beauty" },
+  ];
+
   if (isLoadingImages) {
     return <LinearProgress />;
   }
-  console.log(images);
   return (
     <Box sx={classes.wrapper}>
+      <Typography
+        variant="h6"
+        style={{ cursor: "pointer" }}
+        onClick={handleLogout}
+      >
+        Log out
+      </Typography>
       <Box sx={classes.uploadSection}>
         <Typography variant="h3">Upload image</Typography>
         <form onSubmit={onSubmit} style={classes.form}>
           <input
             type="file"
             id="uploadInput"
-            accept="image/*"
             onChange={onUpdatePhoto}
             required
           />
-          <TextField
-            label="Description"
-            {...register("description")}
-            required
-          />
+          <TextField label="Description" {...register("description")} />
+          <Typography variant="body1">Choose section</Typography>
+          <Select {...register("folder")} required defaultValue="portfolio">
+            {options.map((item) => (
+              <MenuItem value={item.value} key={item.value}>
+                {item.label}
+              </MenuItem>
+            ))}
+          </Select>
           <Button variant="contained" color="primary" type="submit">
             Create Image
           </Button>
@@ -69,19 +94,25 @@ const AdminPanel = () => {
             <Box sx={classes.imageWithDescription} key={item._id}>
               <img
                 src={item.image}
-                style={{ minWidth: "100px" }}
-                width="100px"
-                height="100px"
+                style={{ minWidth: "200px", objectFit: "cover" }}
+                width="200px"
+                height="200px"
                 alt="image"
               />
-              <Typography>
-                <b> Description:</b>
-                {item.description}
-              </Typography>
-              <DeleteIcon
-                onClick={() => handleDelete(item._id)}
-                sx={{ cursor: "pointer", color: "red" }}
-              />
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Typography>
+                  <b> Description:</b>
+                  {item.description}
+                </Typography>
+                <Typography>
+                  <b> Section:</b>
+                  {item.folder}
+                </Typography>
+                <DeleteIcon
+                  onClick={() => handleDelete(item._id)}
+                  sx={{ cursor: "pointer", color: "red" }}
+                />
+              </Box>
             </Box>
           );
         })}
