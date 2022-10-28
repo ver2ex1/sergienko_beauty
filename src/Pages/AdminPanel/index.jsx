@@ -16,6 +16,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 
 import getStyles from "./style";
+import useWindowSize from "hooks/useWindowSize";
 
 const AdminPanel = () => {
   const { images, getImages, deleteImage, createImage, isLoadingImages } =
@@ -38,8 +39,8 @@ const AdminPanel = () => {
   const onSubmit = handleSubmit((payload) => {
     createImage({ payload, callback: () => getImages() });
   });
-  const handleDelete = (id) => {
-    deleteImage({ id, callback: () => getImages() });
+  const handleDelete = (id, imageName) => {
+    deleteImage({ id, imageName, callback: () => getImages() });
   };
 
   const handleLogout = () => {
@@ -51,6 +52,8 @@ const AdminPanel = () => {
     { label: "Runway", value: "runway" },
     { label: "Beauty", value: "beauty" },
   ];
+
+  const { width } = useWindowSize();
 
   if (isLoadingImages) {
     return <LinearProgress />;
@@ -94,9 +97,11 @@ const AdminPanel = () => {
             <Box sx={classes.imageWithDescription} key={item._id}>
               <img
                 src={item.image}
-                style={{ minWidth: "200px", objectFit: "cover" }}
-                width="200px"
-                height="200px"
+                style={{
+                  width: width > 426 ? "200px" : "100px",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
                 alt="image"
               />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -109,7 +114,14 @@ const AdminPanel = () => {
                   {item.folder}
                 </Typography>
                 <DeleteIcon
-                  onClick={() => handleDelete(item._id)}
+                  onClick={() =>
+                    handleDelete(
+                      item._id,
+                      item?.image
+                        ?.split("/")
+                        [item?.image?.split("/")?.length - 1]?.split(".")[0]
+                    )
+                  }
                   sx={{ cursor: "pointer", color: "red" }}
                 />
               </Box>

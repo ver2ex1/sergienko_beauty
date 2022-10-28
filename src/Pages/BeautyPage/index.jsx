@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 
 import getStyles from "./style";
 
-const PortfolioPage = () => {
+const BeautyPage = () => {
   const { getImages, images, isLoadingImages } = imageStore;
   useEffect(() => {
     getImages();
@@ -19,9 +19,9 @@ const PortfolioPage = () => {
   }
   return (
     <Box sx={classes.wrapper}>
-      <Carousel data={images.filter((item) => item.folder === "portfolio")} />
+      <Carousel data={images.filter((item) => item.folder === "beauty")} />
     </Box>
   );
 };
 
-export default observer(PortfolioPage);
+export default observer(BeautyPage);

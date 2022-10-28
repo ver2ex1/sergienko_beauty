@@ -11,6 +11,7 @@ import { CssBaseline } from "@mui/material";
 import theme from "config/theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+console.log = console.warn = console.error = () => {};
 root.render(
   <BrowserRouter>
     <ThemeProvider theme={theme}>

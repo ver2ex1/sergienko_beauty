@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import imageStore from "stores/imageStore";
 import { Box } from "@mui/material";
-import Carousel from "components/Carousel";
+import CardCarousel from "components/CardCarousel";
 import Loading from "components/Loading";
 import { observer } from "mobx-react-lite";
 
 import getStyles from "./style";
 
-const PortfolioPage = () => {
+const RunwayPage = () => {
   const { getImages, images, isLoadingImages } = imageStore;
   useEffect(() => {
     getImages();
@@ -19,9 +19,9 @@ const PortfolioPage = () => {
   }
   return (
     <Box sx={classes.wrapper}>
-      <Carousel data={images.filter((item) => item.folder === "portfolio")} />
+      <CardCarousel data={images.filter((item) => item.folder === "runway")} />
     </Box>
   );
 };
 
-export default observer(PortfolioPage);
+export default observer(RunwayPage);

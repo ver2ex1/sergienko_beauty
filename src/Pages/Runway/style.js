@@ -22,10 +22,6 @@ const getStyles = () => {
           paddingTop: "5%",
         },
       },
-      "& img": {
-        maxHeight: "80vh",
-        objectFit: "contain",
-      },
     },
   };
 };

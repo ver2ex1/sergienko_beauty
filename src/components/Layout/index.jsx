@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import useWindowSize from "hooks/useWindowSize";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import getStyles from "./styles";
 
@@ -16,10 +17,25 @@ const Layout = ({ children }) => {
   const classes = getStyles();
   const { pathname } = useLocation();
   const { width } = useWindowSize();
+  const [isOpen, setOpen] = useState(false);
+  const handleIsOpen = () => {
+    setOpen(!isOpen);
+  };
+
+  const closeSideBar = () => {
+    setOpen(false);
+  };
+
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Box sx={classes.header}>
-        <Typography variant={width > 425 ? "h4" : "h5"} sx={classes.title}>
+        <Typography
+          variant={width > 425 ? "h4" : "h5"}
+          sx={classes.title}
+          onClick={() => navigate("/about", { replace: true })}
+        >
           Alexandra Sergiienko
         </Typography>
         {width > 768 ? (
@@ -44,6 +60,9 @@ const Layout = ({ children }) => {
             pageWrapId={"page-wrap"}
             outerContainerId={"outer-container"}
             right
+            isOpen={isOpen}
+            onOpen={handleIsOpen}
+            onClose={handleIsOpen}
             styles={{
               bmBurgerButton: {
                 position: "fixed",
@@ -111,6 +130,7 @@ const Layout = ({ children }) => {
                     style={
                       isCheckedLink ? classes.activeLink : classes.defaultLink
                     }
+                    onClick={closeSideBar}
                   >
                     {item.name}
                   </Link>

@@ -59,13 +59,13 @@ class ImageStore {
       });
   };
 
-  deleteImage = ({ id, callback }) => {
+  deleteImage = ({ id, imageName, callback }) => {
     runInAction(() => {
       this.isLoadingImages = true;
     });
 
     axios
-      .delete(`/images/${id}`)
+      .delete(`/images/${id}/${imageName}`)
       .then(({}) => {
         toast.success("Image succesfully deleted");
         callback && callback();

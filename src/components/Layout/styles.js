@@ -8,6 +8,7 @@ const getStyles = () => {
     },
     title: {
       flex: 1,
+      cursor: "pointer",
     },
     navigation: {
       display: "flex",

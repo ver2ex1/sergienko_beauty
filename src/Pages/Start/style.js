@@ -14,7 +14,7 @@ const getStyles = () => {
       imageRendering: "-webkit-optimize-contrast",
       backgroundSize: "cover",
       backgroundAttachment: "fixed",
-      backgroundPosition: "top",
+      backgroundPosition: "left",
       textAlign: "center",
       gap: "10px",
     },

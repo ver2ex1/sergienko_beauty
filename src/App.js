@@ -10,15 +10,23 @@ const AdminPanelPage = lazy(() => import("Pages/AdminPanel"));
 const EntryPage = lazy(() => import("Pages/Start"));
 const AboutPage = lazy(() => import("Pages/About"));
 const PortfolioPage = lazy(() => import("Pages/PortfolioPage"));
+const BeautyPage = lazy(() => import("Pages/BeautyPage"));
+const Page404 = lazy(() => import("Pages/NotExistingPage"));
+const RunwayPage = lazy(() => import("Pages/Runway"));
+const ContactMePage = lazy(() => import("Pages/ContactMe"));
 
 const publicRoutes = [
   { path: publicPaths.admin, Component: <AdminLoginPage /> },
   { path: publicPaths.about, Component: <AboutPage /> },
-  { path: publicPaths.form, Component: <h1>1123</h1> },
+  { path: publicPaths.form, Component: <ContactMePage /> },
   { path: publicPaths.portfolio, Component: <PortfolioPage /> },
-  { path: publicPaths.runway, Component: <h1>1123</h1> },
-  { path: publicPaths.beauty, Component: <h1>1123</h1> },
+  { path: publicPaths.runway, Component: <RunwayPage /> },
+  { path: publicPaths.beauty, Component: <BeautyPage /> },
   { path: publicPaths.startPage, Component: <EntryPage /> },
+  {
+    path: "*",
+    Component: <Page404 />,
+  },
 ];
 
 const privateRoutes = [
