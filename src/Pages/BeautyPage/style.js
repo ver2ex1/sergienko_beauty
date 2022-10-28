@@ -19,7 +19,7 @@ const getStyles = () => {
         maxWidth: "90%",
         [theme.breakpoints.down(769)]: {
           maxWidth: "80%",
-          paddingTop: "5%",
+          paddingTop: "2%",
         },
       },
       "& img": {
