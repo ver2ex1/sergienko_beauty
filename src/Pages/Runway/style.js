@@ -6,7 +6,7 @@ const getStyles = () => {
       paddingTop: "2%",
       paddingBottom: "1%",
       [theme.breakpoints.down(426)]: {
-        paddingTop: "25%",
+        paddingTop: "20%",
       },
 
       "& .slick-slider": {
