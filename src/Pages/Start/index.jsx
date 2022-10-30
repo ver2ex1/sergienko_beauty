@@ -7,7 +7,7 @@ const Start = () => {
   const classes = getStyles();
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(publicPaths.about, { replace: true });
+    navigate(publicPaths.portfolio, { replace: true });
   };
   return (
     <Box sx={classes.wrapper}>

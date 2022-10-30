@@ -10,12 +10,14 @@ export const ContactMe = () => {
   const { width } = useWindowSize();
 
   const sendEmail = (e) => {
+    e.preventDefault();
     emailjs.sendForm(
       "service_jgk9t9l",
       "template_8mm2mme",
       form.current,
       "MnEY47pYrVjCP2AFt"
     );
+    window.location.reload();
   };
 
   const classes = getStyles(width);

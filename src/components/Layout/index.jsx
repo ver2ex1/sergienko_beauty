@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         <Typography
           variant={width > 425 ? "h4" : "h5"}
           sx={classes.title}
-          onClick={() => navigate("/about", { replace: true })}
+          onClick={() => navigate("/portfolio", { replace: true })}
         >
           Alexandra Sergiienko
         </Typography>
