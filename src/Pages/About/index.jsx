@@ -8,18 +8,28 @@ const AboutPage = () => {
       <Box sx={classes.content}>
         <Typography variant="h5">About</Typography>
         <Typography variant="body1">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          iure, earum illo magni ex recusandae id consequuntur ut tempore
-          sapiente, perspiciatis asperiores, sequi a illum officiis esse est
-          corporis quis?
+          Born and raised in Ukraine. Alexandra is currently in Europe.
+          Alexandra has been interested in the world of fashion, beauty and
+          style since childhood.
           <br />
           <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum vel
-          nobis velit neque officia vero incidunt officiis fuga id voluptatibus
-          reiciendis repudiandae magni, repellendus rerum possimus nihil,
-          laborum necessitatibus placeat consectetur consequuntur, blanditiis
-          dolore commodi error. Ut ducimus fugiat eaque deserunt laudantium
-          reprehenderit, eligendi, porro odit assumenda commodi officiis nihil.
+          Confidence, perseverance and achieving goals helped to acquire sport.
+          But she was always drawn to creativity and after 3 months of working
+          as a makeup artist, she was able to work at a private Fashion Week in
+          Paris. 
+          <br />
+          <br />
+          Thanks to her parents, Alexandra traveled a lot and learned all
+          the beauties of different countries and their culture. This formed her
+          love for learning something new and understanding that you can combine
+          work and travel. But at the same time, she always show all the
+          uniqueness of ideas in your work. 
+          <br />
+          <br />
+          Skills that have been acquired and
+          remain with Alexandra always both in life and in work: “always try to
+          be 101%, never stop and develop for yourself” to keep abreast of
+          current trends and promote your vision.
         </Typography>
       </Box>
     </Box>
