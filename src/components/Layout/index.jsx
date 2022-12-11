@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
         >
           Alexandra Sergiienko
         </Typography>
-        {width > 768 ? (
+        {width > 768 ? (  
           <Box sx={classes.navigation}>
             {navLinks.map((item) => {
               const isCheckedLink = pathname === item.path;
