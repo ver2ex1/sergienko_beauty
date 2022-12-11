@@ -9,7 +9,7 @@ const Carousel = ({ data }) => {
   const { width } = useWindowSize();
   let settings = {
     dots: width > 768 ? true : false,
-    speed: 500,
+    speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,

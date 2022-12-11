@@ -4,6 +4,8 @@ import useWindowSize from "hooks/useWindowSize";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import Instagram from "images/Intsagram";
+import Whatsapp from "images/Whatsapp";
+import Mail from "images/Mail";
 import getStyles from "./styles";
 
 const navLinks = [
@@ -33,6 +35,14 @@ const Layout = ({ children }) => {
     window.open("https://instagram.com/sergiienko.beauty?igshid=YmMyMTA2M2Y=");
   };
 
+  const handleClickWhatsapp = () => {
+    window.open("https://wa.me/+380955221405");
+  };
+
+  const handleClickMail = () => {
+    window.open("mailto:sergiienkoalexandra@gmail.com");
+  };
+
   return (
     <Box>
       <Box sx={classes.header}>
@@ -43,7 +53,7 @@ const Layout = ({ children }) => {
         >
           Alexandra Sergiienko
         </Typography>
-        {width > 768 ? (  
+        {width > 768 ? (
           <Box sx={classes.navigation}>
             {navLinks.map((item) => {
               const isCheckedLink = pathname === item.path;
@@ -64,6 +74,17 @@ const Layout = ({ children }) => {
               sx={{ cursor: "pointer" }}
               onClick={handleClickInstagram}
             />
+            <Whatsapp
+              stroke="rgb(89, 82, 68)"
+              sx={{ cursor: "pointer", opacity: "0.8" }}
+              onClick={handleClickWhatsapp}
+            />
+            <a href="mailto:sergiienkoalexandra@gmail.com">
+              <Mail
+                stroke="rgb(89, 82, 68)"
+                sx={{ cursor: "pointer", opacity: "0.8" }}
+              />
+            </a>
           </Box>
         ) : (
           <Menu
@@ -146,11 +167,31 @@ const Layout = ({ children }) => {
                   </Link>
                 );
               })}
-              <Instagram
-                stroke="rgb(89, 82, 68)"
-                sx={{ marginTop: "10px", cursor: "pointer" }}
-                onClick={handleClickInstagram}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  gap: "10px",
+                  alignItems: "center",
+                  marginTop: "10px",
+                }}
+              >
+                <Instagram
+                  stroke="rgb(89, 82, 68)"
+                  sx={{ cursor: "pointer" }}
+                  onClick={handleClickInstagram}
+                />
+                <Whatsapp
+                  stroke="rgb(89, 82, 68)"
+                  sx={{ cursor: "pointer", opacity: "0.8" }}
+                  onClick={handleClickWhatsapp}
+                />
+
+                <Mail
+                  stroke="rgb(89, 82, 68)"
+                  sx={{ cursor: "pointer", opacity: "0.8" }}
+                  onClick={handleClickMail}
+                />
+              </div>
             </main>
           </Menu>
         )}
