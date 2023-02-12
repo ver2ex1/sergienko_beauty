@@ -26,7 +26,9 @@ const CardCarousel = ({ data }) => {
       {data.map((item) => (
         <Box sx={classes.card} key={item._id}>
           <img src={item.image} alt="Portfolio" />
+          {item.description && 
           <Typography variant="h6">{item.description}</Typography>
+          }
         </Box>
       ))}
     </Slider>
