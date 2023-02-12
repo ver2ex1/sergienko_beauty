@@ -11,5 +11,6 @@ export const publicPaths = {
   form: "/form",
   startPage: "",
   runway: "/runway",
+  wedding:'/wedding',
   beauty: "/beauty",
 };

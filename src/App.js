@@ -13,6 +13,7 @@ const PortfolioPage = lazy(() => import("Pages/PortfolioPage"));
 const BeautyPage = lazy(() => import("Pages/BeautyPage"));
 const Page404 = lazy(() => import("Pages/NotExistingPage"));
 const RunwayPage = lazy(() => import("Pages/Runway"));
+const WeddingPage = lazy(() => import("Pages/Wedding"));
 const ContactMePage = lazy(() => import("Pages/ContactMe"));
 
 const publicRoutes = [
@@ -21,6 +22,7 @@ const publicRoutes = [
   { path: publicPaths.form, Component: <ContactMePage /> },
   { path: publicPaths.portfolio, Component: <PortfolioPage /> },
   { path: publicPaths.runway, Component: <RunwayPage /> },
+  { path: publicPaths.wedding, Component: <WeddingPage /> },
   { path: publicPaths.beauty, Component: <BeautyPage /> },
   { path: publicPaths.startPage, Component: <EntryPage /> },
   {

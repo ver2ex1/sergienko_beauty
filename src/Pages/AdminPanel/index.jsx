@@ -51,6 +51,7 @@ const AdminPanel = () => {
     { label: "Portfolio", value: "portfolio" },
     { label: "Runway", value: "runway" },
     { label: "Beauty", value: "beauty" },
+    { label: "Wedding", value: "wedding" },
   ];
 
   const { width } = useWindowSize();
@@ -102,7 +103,7 @@ const AdminPanel = () => {
                   height: "auto",
                   objectFit: "cover",
                 }}
-                alt="image"
+                alt="admin"
               />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography>
